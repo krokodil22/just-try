@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Scratch-like Editor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="top-left">
+        <button class="menu-btn">Файл</button>
+        <button class="menu-btn">Правка</button>
+        <button class="menu-btn">Учебник</button>
+      </div>
+      <div class="project-title-wrap">
+        <span class="project-label">Проект:</span>
+        <input id="projectName" value="Без названия" />
+      </div>
+      <div class="top-controls">
+        <button id="greenFlag" class="flag-btn" title="Запустить">▶</button>
+        <button id="stopAll" class="stop-btn" title="Остановить">■</button>
+        <button id="exportBtn" class="menu-btn">Экспорт</button>
+        <button id="importBtn" class="menu-btn">Импорт</button>
+        <input id="importInput" type="file" accept="application/json" hidden />
+      </div>
+    </header>
+
+    <main class="editor-layout">
+      <section class="left-panel">
+        <div id="blockCategories" class="categories"></div>
+        <div id="blockPalette" class="palette"></div>
+      </section>
+
+      <section class="center-panel">
+        <div class="tabs">
+          <button data-tab="code" class="tab active">Код</button>
+          <button data-tab="costumes" class="tab">Костюмы</button>
+          <button data-tab="sounds" class="tab">Звуки</button>
+        </div>
+        <div id="centerContent" class="center-content"></div>
+      </section>
+
+      <section class="right-panel">
+        <div class="stage-wrap">
+          <canvas id="stage" width="480" height="360"></canvas>
+          <div class="stage-meta">Сцена 480×360</div>
+        </div>
+
+        <div class="sprite-props" id="spriteProps"></div>
+
+        <div class="sprite-list-header">
+          <span>Спрайты</span>
+          <button id="addSprite">+ Спрайт</button>
+        </div>
+        <div id="spriteList" class="sprite-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
